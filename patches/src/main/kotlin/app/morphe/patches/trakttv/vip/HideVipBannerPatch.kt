@@ -10,7 +10,7 @@ val hideVipBannerPatch = bytecodePatch(
     name = "Hide VIP banner",
     description = "Removes the Upgrade to VIP upsell banner from the home screen.",
 ) {
-    compatibleWith("tv.trakt.trakt")
+    compatibleWith("tv.trakt.trakt" to arrayOf("3.4.1"))
 
     execute {
         VipBannerVariant1Fingerprint.method.addInstructions(0, "return-void")

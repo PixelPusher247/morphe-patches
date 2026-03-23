@@ -10,7 +10,7 @@
         "BytecodePatch"
       ],
       "compatiblePackages": {
-        "tv.trakt.trakt": null
+        "tv.trakt.trakt": ["3.4.1"]
       },
       "options": []
     }
