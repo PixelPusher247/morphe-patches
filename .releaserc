@@ -19,7 +19,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json"
+        "prepareCmd": "jq '.version=\"${nextRelease.version}\"' patches-list.json > patches-list.json.tmp && mv patches-list.json.tmp patches-list.json && jq -n --arg v '${nextRelease.version}' --arg n '${nextRelease.notes}' '{\"created_at\":(now|todate),\"description\":$n,\"download_url\":(\"https://github.com/\"+env.GITHUB_REPOSITORY+\"/releases/download/v\"+$v+\"/patches-\"+$v+\".mpp\"),\"signature_download_url\":\"\",\"version\":\$v}' > patches-bundle.json"
       }
     ],
     [
@@ -28,7 +28,8 @@
         "assets": [
           "CHANGELOG.md",
           "gradle.properties",
-          "patches-list.json"
+          "patches-list.json",
+          "patches-bundle.json"
         ],
         "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
