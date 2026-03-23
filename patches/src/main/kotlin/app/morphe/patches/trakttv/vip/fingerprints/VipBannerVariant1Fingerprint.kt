@@ -1,10 +1,15 @@
 package app.morphe.patches.trakttv.vip.fingerprints
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.literal
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 
 internal object VipBannerVariant1Fingerprint : Fingerprint(
-    filters = listOf(
-        literal { 0x7f120265 } // text_vip_upsell_default
-    )
+    custom = { methodDef, _ ->
+        methodDef.implementation?.instructions?.any {
+            (it as? WideLiteralInstruction)?.wideLiteral == 0x7f120265L // text_vip_upsell_default
+        } == true &&
+        methodDef.implementation?.instructions?.any {
+            (it as? WideLiteralInstruction)?.wideLiteral == 0x7f120026L // badge_text_get_vip
+        } == true
+    }
 )
