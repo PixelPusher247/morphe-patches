@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "patches": [
     {
       "name": "Hide VIP banner",
@@ -10,9 +10,7 @@
         "BytecodePatch"
       ],
       "compatiblePackages": {
-        "tv.trakt.trakt": [
-          "3.5.0"
-        ]
+        "tv.trakt.trakt": []
       },
       "options": []
     }
