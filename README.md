@@ -1,6 +1,6 @@
 # Trakt Patches
 
-Morphe patches for [Trakt.tv](https://trakt.tv) (	v.trakt.trakt).
+Morphe patches for [Trakt.tv](https://trakt.tv) (tv.trakt.trakt).
 
 ## Patches
 
@@ -18,7 +18,11 @@ java -jar cli.jar patch --patches trakt-patches.mpp input.apk
 
 ### Morphe Manager
 
-Select the .mpp file from the [Releases](../../releases/latest) page.
+[Add patches to Morphe](https://morphe.software/add-source?github=PixelPusher247/morphe-patches)
+
+The patches should work with any 3.x version of the app, latest tested and confirmed is 3.7.0.
+
+Or manually select the .mpp file from the [Releases](../../releases/latest) page.
 
 ## Building
 
